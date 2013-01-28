@@ -270,7 +270,7 @@
             }
             else {
                 num = txt;
-                msg = this.options.displayRemaining.text;
+                msg = this.options.displayRemaining.notice;
                 if (this.options.displayRemaining.css != undefined) {
                     displayMessage.css(this.options.displayRemaining.css);
                 }
