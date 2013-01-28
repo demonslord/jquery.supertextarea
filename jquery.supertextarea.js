@@ -92,7 +92,7 @@
         parentHeight = textarea.parent().height();
         defaultOptions.maxHeight = parentHeight > defaultOptions.minHeight ? parentHeight : defaultOptions.minHeight;
 
-        this.options = $.extend({}, defaultOptions, userOptions);
+        this.options = $.extend(true, defaultOptions, userOptions);
         this._defaultOptions = defaultOptions;
         this._name = pluginName;
 
