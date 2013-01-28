@@ -81,18 +81,20 @@
     ;
 
     Plugin = function (textarea, userOptions) {
+        //copy defaultOptions to temp object, the defaultOptions will not be overwritten for future manipulation
+        var tempOpts = $.extend(true, {}, defaultOptions);
         this.textarea = textarea;
 
-        defaultOptions.minWidth = textarea.width();
-        defaultOptions.minHeight = textarea.height();
+        tempOpts.minWidth = textarea.width();
+        tempOpts.minHeight = textarea.height();
 
         parentWidth = textarea.parent().width();
-        defaultOptions.maxWidth = parentWidth > defaultOptions.minWidth ? parentWidth : defaultOptions.minWidth;
+        tempOpts.maxWidth = parentWidth > tempOpts.minWidth ? parentWidth : tempOpts.minWidth;
 
         parentHeight = textarea.parent().height();
-        defaultOptions.maxHeight = parentHeight > defaultOptions.minHeight ? parentHeight : defaultOptions.minHeight;
+        tempOpts.maxHeight = parentHeight > tempOpts.minHeight ? parentHeight : tempOpts.minHeight;
 
-        this.options = $.extend(true, defaultOptions, userOptions);
+        this.options = $.extend(true, tempOpts, userOptions);
         this._defaultOptions = defaultOptions;
         this._name = pluginName;
 
